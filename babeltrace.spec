@@ -5,17 +5,18 @@
 # Source0 file verified with key 0x5F1B2A0789F12B11 (jeremie.galarneau@gmail.com)
 #
 Name     : babeltrace
-Version  : 1.5.5
-Release  : 3
-URL      : http://www.efficios.com/files/babeltrace/babeltrace-1.5.5.tar.bz2
-Source0  : http://www.efficios.com/files/babeltrace/babeltrace-1.5.5.tar.bz2
-Source99 : http://www.efficios.com/files/babeltrace/babeltrace-1.5.5.tar.bz2.asc
+Version  : 1.5.6
+Release  : 4
+URL      : http://www.efficios.com/files/babeltrace/babeltrace-1.5.6.tar.bz2
+Source0  : http://www.efficios.com/files/babeltrace/babeltrace-1.5.6.tar.bz2
+Source99 : http://www.efficios.com/files/babeltrace/babeltrace-1.5.6.tar.bz2.asc
 Summary  : libbabeltrace provides a reader for trace files, reading mainly the
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1 MIT
 Requires: babeltrace-bin
 Requires: babeltrace-lib
-Requires: babeltrace-doc
+Requires: babeltrace-license
+Requires: babeltrace-man
 BuildRequires : bison
 BuildRequires : elfutils-dev
 BuildRequires : flex
@@ -33,6 +34,8 @@ to/from another trace format.
 %package bin
 Summary: bin components for the babeltrace package.
 Group: Binaries
+Requires: babeltrace-license
+Requires: babeltrace-man
 
 %description bin
 bin components for the babeltrace package.
@@ -52,6 +55,7 @@ dev components for the babeltrace package.
 %package doc
 Summary: doc components for the babeltrace package.
 Group: Documentation
+Requires: babeltrace-man
 
 %description doc
 doc components for the babeltrace package.
@@ -60,20 +64,37 @@ doc components for the babeltrace package.
 %package lib
 Summary: lib components for the babeltrace package.
 Group: Libraries
+Requires: babeltrace-license
 
 %description lib
 lib components for the babeltrace package.
 
 
+%package license
+Summary: license components for the babeltrace package.
+Group: Default
+
+%description license
+license components for the babeltrace package.
+
+
+%package man
+Summary: man components for the babeltrace package.
+Group: Default
+
+%description man
+man components for the babeltrace package.
+
+
 %prep
-%setup -q -n babeltrace-1.5.5
+%setup -q -n babeltrace-1.5.6
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1522156929
+export SOURCE_DATE_EPOCH=1530989930
 %configure --disable-static
 make  %{?_smp_mflags}
 
@@ -85,8 +106,10 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1522156929
+export SOURCE_DATE_EPOCH=1530989930
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/doc/babeltrace
+cp LICENSE %{buildroot}/usr/share/doc/babeltrace/LICENSE
 %make_install
 
 %files
@@ -134,9 +157,8 @@ rm -rf %{buildroot}
 /usr/lib64/pkgconfig/babeltrace.pc
 
 %files doc
-%defattr(-,root,root,-)
+%defattr(0644,root,root,0755)
 %doc /usr/share/doc/babeltrace/*
-%doc /usr/share/man/man1/*
 
 %files lib
 %defattr(-,root,root,-)
@@ -152,3 +174,13 @@ rm -rf %{buildroot}
 /usr/lib64/libbabeltrace-lttng-live.so.1.0.0
 /usr/lib64/libbabeltrace.so.1
 /usr/lib64/libbabeltrace.so.1.0.0
+
+%files license
+%defattr(-,root,root,-)
+/usr/share/doc/babeltrace/LICENSE
+/usr/share/doc/babeltrace/mit-license.txt
+
+%files man
+%defattr(-,root,root,-)
+/usr/share/man/man1/babeltrace-log.1
+/usr/share/man/man1/babeltrace.1
