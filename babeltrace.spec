@@ -6,7 +6,7 @@
 #
 Name     : babeltrace
 Version  : 1.5.6
-Release  : 4
+Release  : 5
 URL      : http://www.efficios.com/files/babeltrace/babeltrace-1.5.6.tar.bz2
 Source0  : http://www.efficios.com/files/babeltrace/babeltrace-1.5.6.tar.bz2
 Source99 : http://www.efficios.com/files/babeltrace/babeltrace-1.5.6.tar.bz2.asc
