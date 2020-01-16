@@ -1,6 +1,6 @@
-1.5.6
-popt-dev
-flex
+1.5.7
 bison
 elfutils-dev
+flex
+popt-dev
 util-linux-dev

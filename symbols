@@ -218,6 +218,7 @@ libbabeltrace.so.1:bt_heap_insert
 libbabeltrace.so.1:bt_heap_remove
 libbabeltrace.so.1:bt_heap_replace_max
 libbabeltrace.so.1:bt_init_trace_collection
+libbabeltrace.so.1:bt_int_is_char
 libbabeltrace.so.1:bt_integer_declaration_new
 libbabeltrace.so.1:bt_iter_add_trace
 libbabeltrace.so.1:bt_iter_create
