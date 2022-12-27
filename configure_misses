@@ -1,2 +1,3 @@
-Configure miss: uuid_generate
+Configure miss: python-config
+Configure miss: python3.1-config
 Configure miss: tput
