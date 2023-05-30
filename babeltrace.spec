@@ -7,7 +7,7 @@
 #
 Name     : babeltrace
 Version  : 2.0.5
-Release  : 9
+Release  : 10
 URL      : https://www.efficios.com/files/babeltrace/babeltrace2-2.0.5.tar.bz2
 Source0  : https://www.efficios.com/files/babeltrace/babeltrace2-2.0.5.tar.bz2
 Source1  : https://www.efficios.com/files/babeltrace/babeltrace2-2.0.5.tar.bz2.asc
@@ -105,7 +105,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1684879300
+export SOURCE_DATE_EPOCH=1685481261
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 export FCFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
@@ -134,7 +134,7 @@ cd ../buildavx2;
 make %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1684879300
+export SOURCE_DATE_EPOCH=1685481261
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/babeltrace
 cp %{_builddir}/babeltrace2-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/babeltrace/abdc08b736a74c3b8b56d8207ff8485b9da43d99 || :
@@ -156,8 +156,6 @@ popd
 
 %files dev
 %defattr(-,root,root,-)
-/V3/usr/lib64/libbabeltrace2-ctf-writer.so
-/V3/usr/lib64/libbabeltrace2.so
 /usr/include/babeltrace2-ctf-writer/clock-class.h
 /usr/include/babeltrace2-ctf-writer/clock.h
 /usr/include/babeltrace2-ctf-writer/event-fields.h
@@ -236,9 +234,7 @@ popd
 /V3/usr/lib64/babeltrace2/plugins/babeltrace-plugin-lttng-utils.so
 /V3/usr/lib64/babeltrace2/plugins/babeltrace-plugin-text.so
 /V3/usr/lib64/babeltrace2/plugins/babeltrace-plugin-utils.so
-/V3/usr/lib64/libbabeltrace2-ctf-writer.so.0
 /V3/usr/lib64/libbabeltrace2-ctf-writer.so.0.0.0
-/V3/usr/lib64/libbabeltrace2.so.0
 /V3/usr/lib64/libbabeltrace2.so.0.0.0
 /usr/lib64/babeltrace2/plugins/babeltrace-plugin-ctf.so
 /usr/lib64/babeltrace2/plugins/babeltrace-plugin-lttng-utils.so
