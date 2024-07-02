@@ -1,7 +1,7 @@
-2.0.5
+2.0.6
 asciidoc
 bison
 elfutils-dev
+file
 flex
-python3-dev
 xmlto
